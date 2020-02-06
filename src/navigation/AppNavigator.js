@@ -1,16 +1,13 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../screens/HomeScreen';
 
-const navigator = createStackNavigator(
-  {
-    Home: HomeScreen,
+const navigator = createStackNavigator({
+  HomeScreen: {
+    screen: HomeScreen,
+    navigationOptions: () => ({
+      header: null,
+    }),
   },
-  {
-    initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      title: 'Kinyarwanda',
-    },
-  },
-);
+});
 
 export default navigator;
