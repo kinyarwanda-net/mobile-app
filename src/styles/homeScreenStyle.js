@@ -5,8 +5,6 @@ import { Platform, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -93,10 +91,41 @@ const styles = StyleSheet.create({
 
   imageBackground: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     width: null,
     height: null,
+  },
+  iconImage: {
+    paddingTop: 50,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  sideMenuContent: {
+    width: '75%',
+    position: 'relative',
+    left: '-1%',
+    top: '-1%',
+  },
+  textSideMenu: {
+    backgroundColor: '#F1F1F1',
+    height: '30%',
+    width: '100%',
+    color: '#006FDE',
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  kinyaImage: {
+    width: 160,
+    height: 30,
+    marginLeft: 20,
+  },
+  logoImage: {
+    width: 70,
+    height: 70,
+  },
+  menuStyle: {
+    marginTop: 0,
+    height: 700,
   },
 });
 
