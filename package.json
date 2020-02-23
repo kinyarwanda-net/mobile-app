@@ -6,8 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --forceExit --detectOpenHandles",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "test": "jest --coverage -u --forceExit --detectOpenHandles",
+    "coveralls": "cat ./coverage/lcov.info",
     "lint": "eslint . --fix"
   },
   "jest": {
@@ -32,6 +32,7 @@
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-dotenv": "^0.2.0",
+    "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-paper": "^3.6.0",
     "react-native-reanimated": "~1.4.0",

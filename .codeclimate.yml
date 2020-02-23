@@ -1,5 +1,7 @@
 version: '2'
 checks:
+  prettier/prettier:
+    enabled: true
   argument-count:
     config:
       threshold: 4
