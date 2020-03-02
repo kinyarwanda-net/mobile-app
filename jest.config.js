@@ -1,7 +1,7 @@
 const { defaults } = require('jest-config');
 
 module.exports = {
-  displayName: 'kinyarwanda',
+  displayName: 'Ikinyarwanda',
   verbose: true,
   preset: 'jest-expo',
   testMatch: ['**/?(*.)+(spec|test).js'],

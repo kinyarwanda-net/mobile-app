@@ -5,6 +5,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 'eb181a2d904c1662c95170030d1a0efff6e3c1722219275441f66b950e97fb79'
     docker:
       # specify the version you desire here
       - image: circleci/node:12.14.1
@@ -25,8 +27,28 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
+      - run:
+          name: 'Install Dependencies'
+          command: npm i
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
 
-      - run: npm install
+      - run:
+          name: 'Set up env variables'
+          command: |
+            echo 'CC_TEST_REPORTER_ID="eb181a2d904c1662c95170030d1a0efff6e3c1722219275441f66b950e97fb79"' >> .env
+      - run:
+          name: 'Run the tests and collect coverage'
+          command: |
+            ./cc-test-reporter before-build
+            npm run test
+            ./cc-test-reporter after-build --exit-code $?
+      - run:
+          name: 'Submit the coverage report to coveralls'
+          command: npm run coveralls
 
       - save_cache:
           paths:
